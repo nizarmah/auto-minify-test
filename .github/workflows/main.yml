@@ -13,21 +13,21 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Auto Minify
-      uses: nizarmah/auto-minify@bug/create_directory_if_not_exist
+      uses: nizarmah/auto-minify@v1.7
 
     - name: Auto Minify
-      uses: nizarmah/auto-minify@bug/create_directory_if_not_exist
+      uses: nizarmah/auto-minify@v1.7
       with:
         output: 'production/assets'
 
     - name: Auto Minify
-      uses: nizarmah/auto-minify@bug/create_directory_if_not_exist
+      uses: nizarmah/auto-minify@v1.7
       with:
         directory: 'js/*'
         output: 'production/js'
     
     - name: Auto Minify
-      uses: nizarmah/auto-minify@bug/create_directory_if_not_exist
+      uses: nizarmah/auto-minify@v1.7
       with:
         directory: 'js/*'
 
