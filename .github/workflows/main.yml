@@ -14,8 +14,22 @@ jobs:
 
     - name: Auto Minify
       uses: nizarmah/auto-minify@bug/create_directory_if_not_exist
+
+    - name: Auto Minify
+      uses: nizarmah/auto-minify@bug/create_directory_if_not_exist
       with:
         output: 'production/assets'
+
+    - name: Auto Minify
+      uses: nizarmah/auto-minify@bug/create_directory_if_not_exist
+      with:
+        directory: 'js/*'
+        output: 'production/js'
+    
+    - name: Auto Minify
+      uses: nizarmah/auto-minify@bug/create_directory_if_not_exist
+      with:
+        directory: 'js/*'
 
     - name: Auto committing minified files
       uses: stefanzweifel/git-auto-commit-action@v3.0.0
