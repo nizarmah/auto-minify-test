@@ -12,13 +12,13 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Auto Minify
-      uses: nizarmah/auto-minify@maxdepth
+    - name: Auto Minify with No MaxDepth
+      uses: nizarmah/auto-minify@v1.8
       with:
         directory: 'max_depth'
 
-    - name: Auto Minify
-      uses: nizarmah/auto-minify@maxdepth
+    - name: Auto Minify with MaxDepth=1
+      uses: nizarmah/auto-minify@v1.8
       with:
         directory: 'shallow_depth'
         maxdepth: 1
