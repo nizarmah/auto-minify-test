@@ -1,0 +1,31 @@
+name: Auto Minify JS and CSS Files
+
+on:
+  push:
+    branches: [ feature/js_engine ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    - name: Auto Minify with Babel Minify
+      uses: nizarmah/auto-minify@js_engine
+      with:
+        directory: 'babel-test'
+        js_engine: 'babel'
+
+    - name: Auto Minify with Uglify-JS
+      uses: nizarmah/auto-minify@js_engine
+      with:
+        directory: 'uglify-js-test'
+        js_engine: 'uglify-js'
+
+    - name: Auto committing minified files
+      uses: stefanzweifel/git-auto-commit-action@v3.0.0
+      with:
+        commit_message: "Github Action: Auto Minified JS and CSS files"
+        branch: ${{ github.ref }}
