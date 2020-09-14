@@ -13,12 +13,12 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Auto Minify with No MaxDepth
-      uses: nizarmah/auto-minify@v1.8
+      uses: ADoesGit/auto-minify@patch-1
       with:
         directory: 'max_depth'
 
     - name: Auto Minify with MaxDepth=1
-      uses: nizarmah/auto-minify@v1.8
+      uses: ADoesGit/auto-minify@patch-1
       with:
         directory: 'shallow_depth'
         maxdepth: 1
