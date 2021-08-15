@@ -1,0 +1,30 @@
+name: Auto Minify JS and CSS Files
+
+on:
+  push:
+    branches: [ pull_requests#19 ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    - name: Auto Minify with No MaxDepth with No Overwrite
+      uses: nizarmah/auto-minify@add_overwrite_option
+      with:
+        directory: 'max_depth'
+
+    - name: Auto Minify with MaxDepth=1 with No Overwrite
+      uses: nizarmah/auto-minify@add_overwrite_option
+      with:
+        directory: 'shallow_depth'
+        maxdepth: 1
+
+    - name: Auto committing minified files
+      uses: stefanzweifel/git-auto-commit-action@v3.0.0
+      with:
+        commit_message: "Github Action: Auto Minified JS and CSS files"
+        branch: ${{ github.ref }}
