@@ -12,16 +12,18 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Auto Minify with No MaxDepth with No Overwrite
+    - name: Auto Minify with No MaxDepth with Overwrite
       uses: nizarmah/auto-minify@add_overwrite_option
       with:
         directory: 'max_depth'
+        overwrite: true
 
-    - name: Auto Minify with MaxDepth=1 with No Overwrite
+    - name: Auto Minify with MaxDepth=1 with Overwrite
       uses: nizarmah/auto-minify@add_overwrite_option
       with:
         directory: 'shallow_depth'
         maxdepth: 1
+        overwrite: True
 
     - name: Auto committing minified files
       uses: stefanzweifel/git-auto-commit-action@v3.0.0
